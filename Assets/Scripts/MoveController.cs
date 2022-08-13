@@ -14,6 +14,7 @@ public class MoveController : MonoBehaviour
         _input.Enable();
     }
 
+    //ƒобавил базовое перемещение чтобы тестировать было проще, но оно тут исключительно и максимально простое. “ак как тестовое его не предполагало, как € пон€л
     private void FixedUpdate()
     {
         _moveVector = _input.Move.Move.ReadValue<Vector2>();

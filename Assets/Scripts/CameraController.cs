@@ -32,6 +32,7 @@ public class CameraController : MonoBehaviour
         _cameraMove = new Vector2(_cameraMove.x, newY);
     }
 
+    //Поворот камеры - тоже не было указано в тестовом, что надо делать, но я добавил чтобы проще было тестить
     private void LateUpdate()
     {
         var newRotation = Quaternion.Euler(_cameraMove.y, _cameraMove.x, 0);

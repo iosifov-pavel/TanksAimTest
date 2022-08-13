@@ -21,7 +21,7 @@ public class AutoAim : MonoBehaviour
 
     private void Awake()
     {
-        _hits = new RaycastHit[10];
+        _hits = new RaycastHit[Constants.HitBufferSize];
         _cachedTanks = new Dictionary<int, Tank>();
     }
 
@@ -33,7 +33,7 @@ public class AutoAim : MonoBehaviour
     private void CheckEnemies()
     {
         var ray = new Ray(_cannonShootPoint.transform.position, _cannonShootPoint.transform.forward);
-        var hits = Physics.SphereCastNonAlloc(ray, _radius, _hits, 100f, _aimMask);
+        var hits = Physics.SphereCastNonAlloc(ray, _radius, _hits, Constants.RayLength, _aimMask);
         if (hits == 0)
         {
             return;
@@ -112,7 +112,7 @@ public class AutoAim : MonoBehaviour
         }
         var maxPriority = tanks.Max(t => t.Priority);
         var tanksWithMaxPriority = tanks.Where(t => t.Priority == maxPriority);
-        var minAngle = 180f;
+        var minAngle = Constants.MinAngle;
         foreach (var tank in tanksWithMaxPriority)
         {
             var shootDeflection = Vector3.Angle(_cannonShootPoint.forward, tank.Target.position - _cannonShootPoint.position);
