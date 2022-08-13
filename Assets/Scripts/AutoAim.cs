@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class AutoAim : MonoBehaviour
 {
@@ -42,7 +41,7 @@ public class AutoAim : MonoBehaviour
         var tanks = new List<Tank>();
         foreach (var hit in _hits)
         {
-            if(hit.transform == null)
+            if (hit.transform == null)
             {
                 continue;
             }

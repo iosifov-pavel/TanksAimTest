@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,7 +18,7 @@ public class CameraController : MonoBehaviour
         _control = new TankControl();
         _control.Move.View.performed += UpdateCameraDeltaValue;
         _control.Enable();
-        _camera.transform.position = transform.position + -_radius*Vector3.forward;
+        _camera.transform.position = transform.position + -_radius * Vector3.forward;
         _camera.transform.position += Vector3.up * 5;
         _camera.transform.LookAt(transform.position);
     }
